@@ -1,127 +1,106 @@
 <template>
-    <!-- component -->
-<!-- component -->
-<!-- component -->
-<!-- This is an example component -->
+  <!-- component -->
+  <!-- component -->
+  <!-- component -->
+  <!-- This is an example component -->
 
-<div class="max-w-2xl mx-auto bg-white p-16 shadow-lg rounded ">
-<div class="text-center mb-5"><h1>Uniseg</h1></div>
-	<form @submit.prevent="submit" >
-    <div class="grid gap-6 mb-6 lg:grid-cols-2">
-        
+  <div class="max-w-2xl mx-auto bg-white p-16 shadow-lg rounded">
+    <div class="text-center mb-5"><h1>Uniseg</h1></div>
+    <form @submit.prevent="submit">
+      <div class="grid gap-6 mb-6 lg:grid-cols-2">
         <div>
-            <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nome</label>
-            <input type="text" v-model="usuario.name" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="digite seu nome" >
+          <label
+            for="first_name"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Nome</label
+          >
+          <input
+            type="text"
+            v-model="usuario.name"
+            id="first_name"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="digite seu nome"
+          />
         </div>
         <div>
-            <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Documento</label>
-            <input type="text" v-model="usuario.document" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="digite um documento válido" >
+          <label
+            for="last_name"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Documento</label
+          >
+          <input
+            type="text"
+            v-model="usuario.document"
+            id="last_name"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="digite um documento válido"
+          />
         </div>
-          
-        
+
         <div>
-            <label for="mail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">E-mail</label>
-            <input type="email" v-model="usuario.email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="examplo@digite.com" >
+          <label
+            for="mail"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >E-mail</label
+          >
+          <input
+            type="email"
+            v-model="usuario.email"
+            id="mail"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="examplo@digite.com"
+          />
         </div>
-        <div class="flex justify-center">
-  
-</div>
-    </div>
-    
-    
-   
-    <button type="submit" class="mb-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar</button>
-</form>
+        <div class="flex justify-center"></div>
+      </div>
 
-
-
-</div>
-
-
+      <button
+        type="submit"
+        class="mb-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Enviar
+      </button>
+    </form>
+  </div>
 </template>
 
 <script>
-
 import { db } from '@/firebase'
 
-import { collection, getDocs  ,query, where } from "firebase/firestore";
-
-
+import { collection, getDocs, query, where } from 'firebase/firestore'
 
 export default {
-    data() {
-        return {
+  data() {
+    return {
+      usuarios: [],
+      usuario: {
+        name: '',
 
-            usuarios: [],
-            usuario: {
+        document: '',
 
-            name:"",
-
-            document:"",
-
-            email:"",
-
-            
-
-
-
-            },
-
-
-         
-
-             
-            
-             
-        
-            
-
-
-
-             
-        
-            
-
-            
-
-            
-        
-  
-        
-    }
-
-  
-    },
-    methods:{
-
-        submit() {
-
-            console.log(this.usuario)
-
-        const planoref = collection(db, "register");
-
-
-        const q = query(planoref, where("email", "==", this.usuario.email));
-
-  
-
-  getDocs(q).then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-        });
-    })
-    .catch((error) => {
-        console.log("Error getting documents: ", error);
-    });
-
-
-
-
-
-
-
+        email: ''
       }
-}
+    }
+  },
+  methods: {
+    submit() {
+      console.log(this.usuario)
+
+      const planoref = collection(db, 'register')
+
+      const q = query(planoref, where('email', '==', this.usuario.email))
+
+      getDocs(q)
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, ' => ', doc.data())
+          })
+        })
+        .catch(error => {
+          console.log('Error getting documents: ', error)
+        })
+    }
+  }
 }
 </script>
