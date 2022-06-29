@@ -1,8 +1,5 @@
 <template>
-    <!-- component -->
-<!-- component -->
-<!-- component -->
-<!-- This is an example component -->
+
 
 <div class="max-w-2xl mx-auto my-32 bg-white p-10  shadow-lg form_register">
 
@@ -64,7 +61,7 @@
 
     </div>
     
-    <div class="flex">
+    <div class="grid gap-6 mb-10 lg:grid-cols-2  ">
     
     <div class="mb-6">
         <label for="plano" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tipo de Plano</label>
@@ -112,28 +109,25 @@
 
 </template>
 
-
 <script>
-
 import { db } from '@/firebase'
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc } from 'firebase/firestore'
 
 export default {
-    data() {
-        return {
-            usuario: {
+  data() {
+    return {
+      usuario: {
+        name: '',
 
-            name:"",
+        document: '',
 
-            document:"",
+        data_nascimento: '',
 
-            data_nascimento:"",
+        phone: '',
 
-            phone:"",
-            
-            email:"",
+        email: '',
 
-            situation:"",
+        situation: '',
 
             plan:"",
 
@@ -144,59 +138,24 @@ export default {
             accommodation:"",
 
 
-
-
-
-            },
-
-             open: false
-
-
-         
-
-             
-            
-             
-        
-            
-
-
-
-             
-        
-            
-
-            
-
-            
-        
+      },
+      open: false
+    }
   
-        
+  },
+ methods: {
+    submit() {
+      addDoc(collection(db, 'register'), this.usuario)
+        .then(docRef => {
+          console.log('Document written with ID: ', docRef.id)
+        })
+        .catch(error => {
+          console.error('Error adding document: ', error)
+        })
     }
-    },
-    methods: {
-
-        submit() {
-            
-           
-
-    addDoc(collection(db, "register"),this.usuario )
-
-    .then((docRef) => { console.log("Document written with ID: ", docRef.id)})
-    .catch(
-        error => { console.error("Error adding document: ", error);
-        }
-    )
-
-
-          
-            
-
-        }
-
-    
-    }
+  }
 }
+
 </script>
 
 <style scoped>
@@ -207,12 +166,10 @@ export default {
   left: 50%;
   width: 300px;
   margin-left: -150px;
- 
 }
 
-
-.form_register{
-  border: 2px solid #63E1FD;
+.form_register {
+  border: 2px solid #63e1fd;
   border-radius: 20px;
   
  
@@ -249,4 +206,7 @@ export default {
 
   padding-left: 45px;
 }
+
+
+
 </style>
