@@ -23,6 +23,7 @@
             <label for="sex" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Sexo</label>
             <select name="sex" id="sex" class="select_input" v-model="usuario.sex">
               
+              
               <option>Masculino</option>
               <option>Feminino</option>
             
