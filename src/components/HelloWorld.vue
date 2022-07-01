@@ -1,78 +1,152 @@
 <template>
-  <div class="flex items-center justify-center">
-    <div class="bg-white lg:w-4/12 w-11/12 shadow-3xl">
-      <form class="p-6 rounded-full flex items-center justify-center flex-col">
-        <div class="mb-28 flex items-center justify-center flex-col">
-          <svg
-            class="mb-12"
-            width="123"
-            height="64"
-            viewBox="0 0 123 64"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="123" height="64" fill="#D9D9D9" />
-          </svg>
+  <v-container>
+    <v-row class="text-center">
+      <v-col cols="12">
+        <v-img
+          :src="logo"
+          class="my-3"
+          contain
+          height="200"
+        />
+      </v-col>
 
-    
-          <h1 class="text-center">Bem-Vindo</h1>
-          <p class="text-center mt-6">
-            Bem-vindo ao Cadastro Uniseg, portal para cadastro e consulta sobre
-            plano de saúde.
-          </p>
-          <button
-            type="button"
-            class="lg:w-5/12 md:w-2/5 sm:2-5 w-full flex justify-center items-center rounded-xl h-14 mt-6 font-bold botaoEntrar"
+      <v-col class="mb-4">
+        <h1 class="display-2 font-weight-bold mb-3">
+          Welcome to the Vuetify 3 Beta
+        </h1>
+
+          <h4>Vite Preview</h4>
+
+        <p class="subheading font-weight-regular">
+          For help and collaboration with other Vuetify developers,
+          <br>please join our online
+          <a
+            href="https://community.vuetifyjs.com"
+            target="_blank"
+          >Discord Community</a>
+        </p>
+      </v-col>
+
+      <v-col
+        class="mb-5"
+        cols="12"
+      >
+        <h2 class="headline font-weight-bold mb-5">
+          What's next?
+        </h2>
+
+        <v-row justify="center">
+          <a
+            v-for="(next, i) in whatsNext"
+            :key="i"
+            :href="next.href"
+            class="subheading mx-3"
+            target="_blank"
           >
-            Entrar
-          </button>
-          <p class="mt-6 criarConta">Criar conta</p>
-        </div>
-      </form>
-    </div>
-  </div>
+            {{ next.text }}
+          </a>
+        </v-row>
+      </v-col>
+
+      <v-col
+        class="mb-5"
+        cols="12"
+      >
+        <h2 class="headline font-weight-bold mb-5">
+          Important Links
+        </h2>
+
+        <v-row justify="center">
+          <a
+            v-for="(link, i) in importantLinks"
+            :key="i"
+            :href="link.href"
+            class="subheading mx-3"
+            target="_blank"
+          >
+            {{ link.text }}
+          </a>
+        </v-row>
+      </v-col>
+
+      <v-col
+        class="mb-5"
+        cols="12"
+      >
+        <h2 class="headline font-weight-bold mb-5">
+          Ecosystem
+        </h2>
+
+        <v-row justify="center">
+          <a
+            v-for="(eco, i) in ecosystem"
+            :key="i"
+            :href="eco.href"
+            class="subheading mx-3"
+            target="_blank"
+          >
+            {{ eco.text }}
+          </a>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
-<script></script>
-<style scoped>
-h1 {
-  color: #333333;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 26px;
+<script>
+import logo from '../assets/logo.svg'
+
+export default {
+  name: 'HelloWorld',
+
+  data: () => ({
+    ecosystem: [
+      {
+        text: 'vuetify-loader',
+        href: 'https://github.com/vuetifyjs/vuetify-loader',
+      },
+      {
+        text: 'github',
+        href: 'https://github.com/vuetifyjs/vuetify',
+      },
+      {
+        text: 'awesome-vuetify',
+        href: 'https://github.com/vuetifyjs/awesome-vuetify',
+      },
+    ],
+    importantLinks: [
+      {
+        text: 'Chat',
+        href: 'https://community.vuetifyjs.com',
+      },
+      {
+        text: 'Made with Vuetify',
+        href: 'https://madewithvuejs.com/vuetify',
+      },
+      {
+        text: 'Twitter',
+        href: 'https://twitter.com/vuetifyjs',
+      },
+      {
+        text: 'Articles',
+        href: 'https://medium.com/vuetify',
+      },
+    ],
+    logo,
+    whatsNext: [
+      {
+        text: 'Explore components',
+        href: 'https://vuetifyjs.com',
+      },
+      {
+        text: 'Roadmap',
+        href: 'https://vuetifyjs.com/introduction/roadmap/',
+      },
+      {
+        text: 'Frequently Asked Questions',
+        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
+      },
+    ],
+  }),
 }
-
-p {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-}
-.form {
-  background-color: #63e1fd;
-  background-image: linear-gradient(225deg, #63e1fd 7%, #54cb72 100%);
-  width: 100%;
-}
-
-.botaoEntrar {
-  background-color: #63e1fd;
-  color: #ffff;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
-}
-
-.criarConta {
-  color: #63e1fd;
-  font-weight: 700;
-  font-size: 16px;
-}
-
-form {
-  height: 581px;
-}
-
-.logo {
-  background-color: grey;
-}
-
-
-
-</style>
+</script>

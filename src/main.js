@@ -4,4 +4,7 @@ import router from './router'
 import './assets/tailwind.css'
 import { createPinia } from 'pinia'
 
-createApp(App).use(createPinia()).use(router).mount('#app')
+import vuetify from './plugins/vuetify'
+
+
+createApp(App).use(createPinia()).use(router).use(vuetify).mount('#app') 
