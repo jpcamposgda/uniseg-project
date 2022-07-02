@@ -51,10 +51,10 @@
   
   <tbody >
     
-    <tr  class="border_manual text-center ">
-      <td class="border_manual_spacing" > {{usuarios.name}} </td>
-      <td> {{usuarios.document}} </td>
-      <td> {{usuarios.situation}} </td>
+    <tr v-for="(user, index) in usuarios" :key="index"   class="border_manual text-center ">
+      <td class="border_manual_spacing" > {{ user.name }} </td>
+      <td> {{ user.document }} </td>
+      <td> {{ user.situation }} </td>
       <td class="items-center"><button class="   text-white bg-cyan-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >Editar</button></td>
     </tr>
     
@@ -71,13 +71,15 @@ import { collection, getDocs, query, where } from 'firebase/firestore'
 export default {
   data() {
     return {
-      usuarios: {
+      user: {
         name: '',
 
         document: '',
 
         situation: ''
       },
+
+      usuarios: [],
       usuario: {
         name: '',
 
@@ -89,7 +91,9 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.usuario)
+      
+      
+      this.usuarios.length = 0;
 
       const planoref = collection(db, 'register')
 
@@ -98,16 +102,19 @@ export default {
       getDocs(q)
         .then(querySnapshot => {
           querySnapshot.forEach(doc => {
+
+            
            
-            this.usuarios.name =  doc.get('name')
-            this.usuarios.document =  doc.get('document')
-            this.usuarios.situation =  doc.get('situation')
+         
+            
+            this.usuarios.push(doc.data());
+            
             
           })
         })
-        .catch(error => {
-          console.log('Error getting documents: ', error)
-        })
+       .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
     }
   }
 }
