@@ -74,14 +74,15 @@
     </div>
 
     <div>
-        <label for="accommodation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Acomodação</label>
+        <label for="accommodation" class="block mb-2 text-sm font-medium text-gray-900 ">Acomodação</label>
         <select name="sex" id="sex" class="select_input" v-model="usuario.accommodation">
-              
+          
               <option>Apartamento</option>
               <option>Enfermaria</option>
             
             </select>
-
+            
+   
     </div>
 
 
@@ -200,6 +201,7 @@ export default {
   border-radius: 10px;
   width: 120px;
   height: 45px;
+  
 }
 
 .form-check{
