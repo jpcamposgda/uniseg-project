@@ -58,7 +58,7 @@
       <td> {{ user.situation }} </td>
       <td class="items-center"><button class="   text-white bg-cyan-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >Editar</button></td>
     </tr>
-    <v-alert v-if="msgBind">nao foi possivel encontrar o cliente</v-alert>
+    <v-alert v-if="msgBind"> {{msgBind}} </v-alert>
   </tbody>
 </table>
   </div>
@@ -89,7 +89,7 @@ export default {
         email: ''
       },
 
-     msgBind: undefined,
+     msgBind: '',
       
     }
   },
@@ -105,31 +105,33 @@ export default {
 
       getDocs(q)
         .then(querySnapshot => {
+
+
+          
+
+
           querySnapshot.forEach(doc => {
 
             
-           
+           this.usuarios.push(doc.data()) 
          
             
-            this.usuarios.push(doc.data());
             
             
-          })
-           if(this.usuarios.length == 0) { 
-
-              console.log(this.msgBind) 
-           
-          } 
+         
+            
+            
+           })
+          
           
 
            
-          
          
-        })
-       .catch((error) => {
-        console.log("Error getting documents: ", error);
-    }) ;
-
+        //  if( this.usuarios.length == 0 ) { this.msgBind = "error"} else { this.msgBind = ''}
+        return this.usuarios.length == 0 ? this.msgBind = "Não foi possivel encontrar o Cliente, digite novamente!" : this.msgBind = ''
+        } 
+         )
+       
    
     },
 
