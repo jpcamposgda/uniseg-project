@@ -14,17 +14,17 @@
     </p>
   </div>
   <div class="mt-24 flex w-full justify-center lg:mr-12">
-    <button
-      type="button"
-      class="botao font-bold lg:rounded-lg lg:w-48 w-70 lg:h-32 h-32 rounded-lg text-2xl p-6 shadow-2xl"
-    >
-      Cadastro
-    </button>
-
-    <router-link to="/consulta">
+    <router-link to="/home">
       <button
         type="button"
-        class="botao font-bold lg:rounded-lg lg:w-48 lg:h-32 rounded-lg text-2xl lg:mr-20 lg:ml-12 ml-12 p-6 shadow-2xl"
+        class="botao font-bold lg:rounded-lg lg:w-48 w-70 lg:h-32 h-32 rounded-lg text-2xl p-6 shadow-2xl"
+      >
+        Cadastro
+      </button>
+    </router-link>
+    <router-link to="/consulta">
+      <button
+        class="botao font-bold lg:rounded-lg lg:w-48 lg:h-32 h-32 rounded-lg text-2xl lg:mr-20 lg:ml-12 ml-12 p-6 shadow-2xl"
       >
         Consulta
       </button>

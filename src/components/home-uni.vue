@@ -18,11 +18,13 @@
             Bem-vindo ao Cadastro Uniseg, portal para cadastro e consulta sobre
             plano de saúde.
           </p>
-          <button
-            class="lg:w-5/12 md:w-2/5 sm:2-5 w-full flex justify-center items-center rounded-lg h-14 mt-6 font-bold botaoEntrar"
-          >
-            Entrar
-          </button>
+          <router-link to="/login" tag="button">
+            <button
+              class="lg:w-72 w-72 flex justify-center items-center rounded-lg h-14 mt-6 font-bold botaoEntrar"
+            >
+              Entrar
+            </button>
+          </router-link>
           <button class="mt-6 criarConta">Criar conta</button>
         </div>
       </form>
@@ -32,8 +34,6 @@
 
 <script></script>
 <style scoped>
-
-
 h1 {
   color: #333333;
   font-weight: 700;
