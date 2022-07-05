@@ -4,23 +4,23 @@
   <!-- component -->
   <!-- This is an example component -->
 
-  <div class="max-w-2xl  mx-auto my-32 bg-white p-10  shadow-lg form_register">
+  <!-- <div class="max-w-2xl  mx-auto my-2   shadow-lg form_register "> -->
     
     <form @submit.prevent="submit">
-      <div class="grid  gap-6 mb-6 lg:grid-cols-2">
+      <div class="grid   gap-6 mb-6  max-w-2xl   mx-auto my-12 ">
         
 
-        <div>
+        <div >
           <label
             for="mail"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >Nome</label
+            >Pesquisa</label
           >
           <input
             type="email"
             v-model="usuario.name"
             id="mail"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg   block w-full p-2.5 "
             placeholder="Digite o nome completo"
           />
         </div>
@@ -31,14 +31,14 @@
         Enviar
       </button> -->
 
-      <div @click="submit" class="lupa" ><v-icon>mdi-magnify</v-icon> </div> 
+      <v-icon @click="submit" class="lupa" >mdi-magnify</v-icon>
       </div>
 
       
     </form>
-  </div>
+  <!-- </div> -->
 
-  <div class="max-w-2xl  mx-auto  bg-white pb-16    shadow-lg form_register">
+  <div class="max-w-2xl  mx-auto   pb-16    shadow-lg form_register">
     <table class="w-full ">
   <thead class=" border-b-2 border-cyan-300 ">
     <tr class="text-start  ">
@@ -51,13 +51,14 @@
   
   <tbody >
     
-    <tr  class="border_manual text-center ">
-      <td class="border_manual_spacing" > {{usuarios.name}} </td>
-      <td> {{usuarios.document}} </td>
-      <td> {{usuarios.situation}} </td>
+    <tr v-for="(user, index) in usuarios" :key="index"   class="border_manual text-center ">
+      
+      <td class="border_manual_spacing" > {{ user.name }} </td>
+      <td> {{ user.document }} </td>
+      <td> {{ user.situation }} </td>
       <td class="items-center"><button class="   text-white bg-cyan-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >Editar</button></td>
     </tr>
-    
+    <v-alert v-if="msgBind"> {{msgBind}} </v-alert>
   </tbody>
 </table>
   </div>
@@ -71,25 +72,32 @@ import { collection, getDocs, query, where } from 'firebase/firestore'
 export default {
   data() {
     return {
-      usuarios: {
+      user: {
         name: '',
 
         document: '',
 
         situation: ''
       },
+
+      usuarios: [],
       usuario: {
         name: '',
 
         document: '',
 
         email: ''
-      }
+      },
+
+     msgBind: '',
+      
     }
   },
   methods: {
     submit() {
-      console.log(this.usuario)
+      
+      
+      this.usuarios.length = 0;
 
       const planoref = collection(db, 'register')
 
@@ -97,18 +105,38 @@ export default {
 
       getDocs(q)
         .then(querySnapshot => {
+
+
+          
+
+
           querySnapshot.forEach(doc => {
-           
-            this.usuarios.name =  doc.get('name')
-            this.usuarios.document =  doc.get('document')
-            this.usuarios.situation =  doc.get('situation')
+
             
-          })
-        })
-        .catch(error => {
-          console.log('Error getting documents: ', error)
-        })
-    }
+           this.usuarios.push(doc.data()) 
+         
+            
+            
+            
+         
+            
+            
+           })
+          
+          
+
+           
+         
+        //  if( this.usuarios.length == 0 ) { this.msgBind = "error"} else { this.msgBind = ''}
+        return this.usuarios.length == 0 ? this.msgBind = "Não foi possivel encontrar o Cliente, digite novamente!" : this.msgBind = ''
+        } 
+         )
+       
+   
+    },
+
+    
+    
   }
 }
 </script>
@@ -116,17 +144,30 @@ export default {
 
 
 <style scoped>
+
+
+.active_bind{
+  background: blue;
+}
 .form_register {
   border: 2px solid #63e1fd;
   border-radius: 20px;
-  
+  background-color: #8BC6EC;
+background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+
+position: relative;
+
+
  
 }
 
 
 .lupa{
-
+  
+  text-align: right;
   cursor: pointer;
+  left: 90%;
+  top: -240%;
 }
 
 .button_consulta{
