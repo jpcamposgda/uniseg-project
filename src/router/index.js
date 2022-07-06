@@ -51,11 +51,11 @@ const routes = [
         /* webpackChunkName: "about" */ '../components/pgPrincipal-uni.vue'
       )
   },
+
   {
-    path: '/form',
-    name: 'form',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../components/form-uni.vue')
+    path: '/cadastro',
+    name: 'cadastro',
+    component: () => import('../components/CadastroVendedor.vue')
   }
 ]
 

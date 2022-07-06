@@ -4,9 +4,6 @@
       <router-view />
     </v-main>
   </v-app>
-  =======
-  <router-view />
-  >>>>>>> 37e9504f95a0d666afdf0b00aa54b1237be15fd3
 </template>
 
 <script>

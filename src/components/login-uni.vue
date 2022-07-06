@@ -58,6 +58,21 @@ input:focus {
 }
 
 .botaoEntrar {
-  background-color: #63e1fd;
+  font-size: 17px;
+  padding: 0.5em 2em;
+  border: transparent;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  background: #63e1fd;
+  color: white;
+  border-radius: 4px;
+}
+
+.botaoEntrar:hover {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, #63e1fd, rgba(0, 212, 255, 1) 100%);
+}
+
+.botaoEntrar:active {
+  transform: translate(0em, 0.2em);
 }
 </style>
