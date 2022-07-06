@@ -45,13 +45,17 @@
       <label for="website" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Situação</label>
       <div class="flex">
       <div class="form-check">
-      <input class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-cyan-300 checked:border-cyan-300 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="radio" name="flexRadioDefault" id="ativo" value="ATIVO" v-model="usuario.situation">
+      <!-- <input type="radio" id="one" value="ATIVO" v-model="usuario.situation">
+      <label for="one">ATIVO</label> -->
+      <input class="form-check-input  rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-cyan-300 checked:border-cyan-300 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="radio" name="flexRadioDefault" id="ativo" value="ATIVO" v-model="usuario.situation">
       <label class="form-check-label inline-block text-gray-800" for="ativo">
         Ativo
       </label>
   </div>
     <div class="form-check">
-      <input class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-cyan-300 checked:border-cyan-300 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="radio" name="flexRadioDefault" id="inativo" value="INATIVO"  v-model="usuario.situation" >
+      <!-- <input class="bg:cyan-300" type="radio" id="two" value="INATIVO" v-model="usuario.situation">
+      <label for="two">INATIVO</label> -->
+      <input class="form-check-input  rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-cyan-300 checked:border-cyan-300 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="radio" name="flexRadioDefault" id="inativo" value="INATIVO"  v-model="usuario.situation" >
       <label class="form-check-label inline-block text-gray-800" for="inativo">
        Inativo
       </label>
