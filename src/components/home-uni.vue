@@ -46,7 +46,7 @@
               Entrar
             </button>
           </router-link>
-          <router-link to="/cadastrousuario">
+          <router-link to="/cadastro">
             <button class="mt-6 criarConta">Criar conta</button>
           </router-link>
         </div>

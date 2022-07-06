@@ -1,7 +1,7 @@
 <template>
 
 
-<div class="max-w-2xl mx-auto my-32 bg-white p-10  shadow-lg form_register">
+<div class="max-w-2xl  my-32 m-2 lg:mx-auto bg-white p-10  shadow-lg form_register">
 
 	<form @submit.prevent="submit" >
     <div class="grid gap-6 mb-6 lg:grid-cols-2">
@@ -95,7 +95,7 @@
     
     
    
-    <button type="submit" class="mb-5 text-white bg-cyan-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar</button>
+    <button type="submit" class="botaoCadastrar text-bold">Enviar</button>
 </form>
 
 </div>
@@ -171,6 +171,25 @@ export default {
   left: 50%;
   width: 300px;
   margin-left: -150px;
+}
+
+.botaoCadastrar {
+  font-size: 17px;
+  padding: 0.5em 2em;
+  border: transparent;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  background: #63e1fd;
+  color: white;
+  border-radius: 4px;
+}
+
+.botaoCadastrar:hover {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, #63e1fd, rgba(0, 212, 255, 1) 100%);
+}
+
+.botaoCadastrar:active {
+  transform: translate(0em, 0.2em);
 }
 
 .form_register {

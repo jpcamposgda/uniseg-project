@@ -7,7 +7,7 @@
   <!-- <div class="max-w-2xl  mx-auto my-2   shadow-lg form_register "> -->
     
     <form @submit.prevent="submit">
-      <div class="grid   gap-6 mb-6  max-w-2xl   mx-auto my-12 ">
+      <div class="grid   gap-6 mb-6  max-w-2xl m-2  lg:mx-auto my-12 ">
         
 
         <div >
@@ -21,7 +21,7 @@
             v-model="usuario.name"
             id="mail"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg   block w-full p-2.5 "
-            placeholder="Digite o nome completo"
+            placeholder="Digite o email completo"
           />
         </div>
        <!-- <button
@@ -38,7 +38,7 @@
     </form>
   <!-- </div> -->
 
-  <div class="max-w-2xl  mx-auto   pb-16    shadow-lg form_register">
+  <div class="max-w-2xl m-2 lg:mx-auto  pb-16 shadow-lg form_register">
     <table class="w-full ">
   <thead class=" border-b-2 border-cyan-300 ">
     <tr class="text-start  ">
@@ -56,11 +56,14 @@
       <td class="border_manual_spacing" > {{ user.name }} </td>
       <td> {{ user.document }} </td>
       <td> {{ user.situation }} </td>
-      <td class="items-center"><button class="   text-white bg-cyan-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >Editar</button></td>
+      <td class="items-center p-2 "><button class="   text-white bg-cyan-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >Editar</button></td>
+    
     </tr>
-    <v-alert v-if="msgBind"> {{msgBind}} </v-alert>
+    
   </tbody>
+  
 </table>
+<v-alert v-if="msgBind"> {{msgBind}} </v-alert>
   </div>
 </template>
 
@@ -146,14 +149,12 @@ export default {
 <style scoped>
 
 
-.active_bind{
-  background: blue;
-}
+
 .form_register {
   border: 2px solid #63e1fd;
   border-radius: 20px;
-  background-color: #8BC6EC;
-background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+  
+
 
 position: relative;
 

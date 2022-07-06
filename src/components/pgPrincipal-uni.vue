@@ -14,7 +14,7 @@
     </p>
   </div>
   <div class="mt-24 flex w-full justify-center lg:mr-12">
-    <router-link to="/home">
+    <router-link to="/register">
       <button
         type="button"
         class="botao font-bold lg:rounded-lg lg:w-48 w-70 lg:h-32 h-32 rounded-lg text-2xl p-6 shadow-2xl"
