@@ -13,7 +13,8 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
     path: '/register',
@@ -21,7 +22,8 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/register-user.vue')
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../components/register-user.vue')
   },
 
   {
@@ -30,7 +32,30 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/consulta-uni.vue')
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../components/consulta-uni.vue')
+  },
+
+  {
+    path: '/login',
+    name: 'login',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../components/login-uni.vue')
+  },
+
+  {
+    path: '/principal',
+    name: 'principal',
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ '../components/pgPrincipal-uni.vue'
+      )
+  },
+
+  {
+    path: '/cadastro',
+    name: 'cadastro',
+    component: () => import('../components/CadastroVendedor.vue')
   }
 ]
 
