@@ -12,7 +12,11 @@ export default defineConfig({
     vuetify({
       autoImport: true,
     }),
+    
   ],
+  server: { 
+    host: '0.0.0.0'
+  } ,
   define: { 'process.env': {} },
   resolve: {
     alias: {

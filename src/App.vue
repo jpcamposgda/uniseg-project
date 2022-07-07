@@ -22,11 +22,6 @@ html,
 body {
   font-family: 'Quicksand', sans-serif;
 
-  background: rgb(131, 58, 180);
-  background: linear-gradient(
-    90deg,
-    rgba(131, 58, 180, 1) 0%,
-    rgba(99, 225, 253, 1) 55%
-  );
+  
 }
 </style>
