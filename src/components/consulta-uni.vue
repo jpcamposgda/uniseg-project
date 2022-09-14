@@ -83,10 +83,10 @@
     
     <tr v-for="(user, index) in usuarios" :key="index"   class="border_manual text-center ">
       
-      <td class="border_manual_spacing" > {{ user.name }} </td>
-      <td> {{ user.document }} </td>
-      <td> {{ user.situation }} </td>
-      <td class="items-center p-2 "><button class="   text-white bg-cyan-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >Editar</button></td>
+      <td class="border_manual_spacing" > {{ user.content.name }} </td>
+      <td> {{ user.content.document }} </td>
+      <td> {{ user.content.situation }} </td>
+      <td class="items-center p-2 "><button class=" sm:m-1 md:m-1 lg:m-1 m-1   text-white bg-cyan-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-cyan-300 hover:bg-cyan-500 focus:ring-blue-500" >Editar</button> <button class=" sm:m-1 md:m-1 lg:m-1 m-1 text-white  hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-red-600 hover:bg-red-500 " @click.prevent="deletarId(user.id)">Deletar</button></td>
     
     </tr>
     
@@ -102,32 +102,53 @@
 <script>
 import { db } from '@/firebase'
 
-import { collection, getDocs, query, where } from 'firebase/firestore'
+import { collection, deleteDoc, doc,  documentId,  getDoc,  getDocs, query, where } from 'firebase/firestore'
 
 export default {
   data() {
     return {
+
+      
+
       user: {
-        name: '',
+
+        id: '',
+
+
+        content:{ name: '',
 
         document: '',
 
-        situation: ''
+        situation: '',
+       }
+       
+        
+        
+
+        
+        
       },
 
       usuarios: [],
       usuario: {
+        
+        
+
         name: '',
 
         document: '',
 
-        email: ''
+        email: '',
+
+        
       },
 
      msgBind: '',
       
     }
   },
+
+ 
   methods: {
     submit() {
       
@@ -148,7 +169,20 @@ export default {
           querySnapshot.forEach(doc => {
 
             
-           this.usuarios.push(doc.data()) 
+            const todo = {
+              id: doc.id,
+              content: doc.data()
+            }
+
+           this.usuarios.push(todo) 
+
+           
+
+           
+           
+
+            
+          
          
             
             
@@ -173,11 +207,33 @@ export default {
 
     goBack() {   this.$router.go(-1) } ,
 
-    goExit() {   this.msgBind = ''}
+    goExit() {   this.msgBind = ''},
 
-    
+
+    deletarId(id){
+
+       deleteDoc(doc(db, 'register', id));
+
+       this.submit()
+
+      
+    }
+     
     
   }
+        
+        
+    
+
+
+    
+
+        
+     
+    
+    
+    
+  
 }
 </script>
 
